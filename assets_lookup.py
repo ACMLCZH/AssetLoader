@@ -2,6 +2,7 @@ import os
 
 texture_folder = "./assets/textures"
 model_folder = "./assets/models"
+background_folder = "./assets/backgrounds"
 
 class TextureSource:
     def __init__(
@@ -18,6 +19,13 @@ class TextureSource:
             self.displace = None
         else:
             self.displace = os.path.join(texture_folder, displace)
+
+class BackgroundSource:
+    def __init__(
+        self,
+        texture,
+    ):
+        self.texture = os.path.join(background_folder, texture)
 
 texture_lookup = {
     "dark_wood": TextureSource(
@@ -52,4 +60,9 @@ texture_lookup = {
         normal="sandy_gravel/textures/sandy_gravel_nor_gl_4k.exr",
         displace="sandy_gravel/textures/sandy_gravel_disp_4k.png"
     ),
+}
+
+background_lookup = {
+    "sunflowers_puresky": BackgroundSource("sunflowers_puresky_8k.hdr"),
+    "brown_photostudio_07": BackgroundSource("brown_photostudio_07_8k.hdr"), 
 }
