@@ -84,7 +84,7 @@ background_lookup = {
     "brown_photostudio_07": BackgroundSource("brown_photostudio_07_8k.hdr"), 
 }
 
-model_look_up = {
+model_lookup = {
     "wooden_table": ModelSource(
         object="blend/wooden_table/models/wooden_table_02.obj",
         texture="blend/wooden_table/textures/wooden_table_02_diff_4k.jpg",
