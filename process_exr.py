@@ -35,12 +35,16 @@ def change_compression_type(filename, new_type):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--check_all_textures", action="store_true", default=False)
+    parser.add_argument("--check_all_models", action="store_true", default=False)
     parser.add_argument("--path", type=str, default=None)
     args = parser.parse_args()
     
     # test_file = "./assets/textures/fabric_pattern_05/textures/fabric_pattern_05_nor_gl_4k.exr"
-    if args.check_all_textures:
-        walks = os.walk("./assets/textures/")
+    if args.check_all_textures or args.check_all_models:
+        if args.check_all_textures:
+            walks = os.walk("./assets/textures/")
+        else:
+            walks = os.walk("./assets/models/")
         for dir_path, dirnames, filenames in walks:
             for filename in filenames:
                 if filename.endswith(".exr"):
