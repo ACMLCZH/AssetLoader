@@ -24,7 +24,7 @@ def fix_zup(filename):
     with open(filename, 'r') as file:
         for line in file:
             if line.startswith('#'):
-                if line == f"# {zup_tag}":
+                if line.strip() == f"# {zup_tag}":
                     return
 
     print(f"Convert {filename} to be z-up")
