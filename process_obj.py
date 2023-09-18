@@ -24,18 +24,24 @@ def fix_zup(filename):
     with open(filename, 'r') as file:
         for line in file:
             if line.startswith('#'):
-                if line == f"# {zup_tag}":
+                if line.strip() == f"# {zup_tag}":
                     return
 
     print(f"Convert {filename} to be z-up")
     
     mesh = trimesh.load_mesh(filename, skip_material=True)
+
+    print(mesh.visual.uv)
+
     vertices = mesh.vertices.copy()
     vertices[:, 1], vertices[:, 2] = -mesh.vertices[:, 2], mesh.vertices[:, 1]
     normals = mesh.vertex_normals.copy()
     normals[:, 1], normals[:, 2] = -mesh.vertex_normals[:, 2], mesh.vertex_normals[:, 1]
     mesh.vertices = vertices
     mesh.vertex_normals = normals
+
+    filename = "./tmp.obj"
+    
     export_without_mtl(mesh, filename, add_zup=True)
 
 if __name__ == "__main__":
@@ -54,7 +60,4 @@ if __name__ == "__main__":
                     fix_zup(file_path)
     else:
         file_path = args.path
-        # print(os.path.exists("./assets/models/blend/wooden_table/wooden_table_02.obj"))
-        # print(os.listdir("./assets"))
-        # print(os.path.exists(file_path))
         fix_zup(file_path)
