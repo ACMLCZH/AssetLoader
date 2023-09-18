@@ -7,6 +7,8 @@ from io import BytesIO
 import pygltflib
 import argparse
 
+from process_obj import export_without_mtl
+
 class GLBObject:
     def __init__(self,
         vertices,
@@ -269,20 +271,6 @@ class GLBObjectScene:
             roughness_image_file = os.path.join(dir_name, f'roughness_{index}.png')
             print(f"Export texture index {index} to: {roughness_image_file}")
             mat.roughness_texture.save(roughness_image_file)
-
-
-def export_without_mtl(mesh, path: str):
-    obj_str = trimesh.exchange.obj.export_obj(
-        mesh, include_color=True, include_texture=True, write_texture=False
-    )
-    obj_list = obj_str.split("\n")
-    obj_list = [s for s in obj_list if not s.startswith("usemtl") and 
-                                       not s.startswith("mtllib") and 
-                                       not s.startswith("#")]
-    obj_str = "\n".join(obj_list)
-    fw = open(path, "w")
-    fw.write(obj_str)
-    fw.close()
 
 def uri_to_image(uri):
     image_data = base64.b64decode(uri.split(",")[1])
