@@ -29,7 +29,7 @@ def fix_zup(filename):
 
     print(f"Convert {filename} to be z-up")
     
-    mesh = trimesh.load_mesh(filename, skip_material=True, process=False, maintain_order=True)
+    mesh = trimesh.load_mesh(filename, skip_material=True)
     vertices = mesh.vertices.copy()
     vertices[:, 1], vertices[:, 2] = -mesh.vertices[:, 2], mesh.vertices[:, 1]
     normals = mesh.vertex_normals.copy()
