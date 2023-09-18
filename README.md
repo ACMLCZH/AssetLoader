@@ -4,8 +4,7 @@ A storage and processing project of textures and models mainly for LuisaRender u
 ### Dependencies building
 ```
 conda install -c conda-forge openexr-python
-pip install trimesh
-pip install scipy
+pip install Pillow scipy trimesh
 ```
 
 ### Processing EXR image

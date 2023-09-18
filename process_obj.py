@@ -29,19 +29,13 @@ def fix_zup(filename):
 
     print(f"Convert {filename} to be z-up")
     
-    mesh = trimesh.load_mesh(filename, skip_material=True)
-
-    print(mesh.visual.uv)
-
+    mesh = trimesh.load_mesh(filename, skip_material=True, process=False, maintain_order=True)
     vertices = mesh.vertices.copy()
     vertices[:, 1], vertices[:, 2] = -mesh.vertices[:, 2], mesh.vertices[:, 1]
     normals = mesh.vertex_normals.copy()
     normals[:, 1], normals[:, 2] = -mesh.vertex_normals[:, 2], mesh.vertex_normals[:, 1]
     mesh.vertices = vertices
     mesh.vertex_normals = normals
-
-    filename = "./tmp.obj"
-    
     export_without_mtl(mesh, filename, add_zup=True)
 
 if __name__ == "__main__":
