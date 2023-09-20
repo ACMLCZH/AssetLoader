@@ -8,14 +8,14 @@ class TextureSource:
     def __init__(
         self,
         texture,
-        roughness,
-        normal,
+        roughness = None,
+        normal = None,
         metallic = None,
         displace = None
     ):
         self.texture = os.path.join(texture_folder, texture)
-        self.roughness = os.path.join(texture_folder, roughness)
-        self.normal = os.path.join(texture_folder, normal)
+        self.roughness = None if roughness is None else os.path.join(texture_folder, roughness)
+        self.normal = None if normal is None else os.path.join(texture_folder, normal)
         self.metallic = None if metallic is None else os.path.join(texture_folder, metallic)
         self.displace = None if displace is None else os.path.join(texture_folder, displace)
 
@@ -31,15 +31,15 @@ class ModelSource:
         self,
         object,
         texture,
-        roughness,
-        normal,
+        roughness = None,
+        normal = None,
         metallic = None,
         displace = None
     ):
         self.object = os.path.join(model_folder, object)
         self.texture = os.path.join(model_folder, texture)
-        self.roughness = os.path.join(model_folder, roughness)
-        self.normal = os.path.join(model_folder, normal)
+        self.roughness = None if roughness is None else os.path.join(model_folder, roughness)
+        self.normal = None if normal is None else os.path.join(model_folder, normal)
         self.metallic = None if metallic is None else os.path.join(model_folder, metallic)
         self.displace = None if displace is None else os.path.join(model_folder, displace)
 
@@ -77,6 +77,30 @@ texture_lookup = {
         normal="sandy_gravel/textures/sandy_gravel_nor_gl_4k.exr",
         displace="sandy_gravel/textures/sandy_gravel_disp_4k.png"
     ),
+
+    "eraser": TextureSource(
+        texture="cube_bake/eraser/Regulated.png"
+    ),
+
+    "poker_1": TextureSource(
+        texture="both_bake/poker/Poker_1.png"
+    ),
+    
+    "poker_2": TextureSource(
+        texture="both_bake/poker/Poker_2.png"
+    ),
+    
+    "poker_3": TextureSource(
+        texture="both_bake/poker/Poker_3.png"
+    ),
+
+    "postcard_1": TextureSource(
+        texture="both_bake/postcard/Postcard_1.png"
+    ),
+    
+    "postcard_2": TextureSource(
+        texture="both_bake/postcard/Postcard_2.png"
+    ),
 }
 
 background_lookup = {
@@ -93,3 +117,13 @@ model_lookup = {
         metallic="blend/wooden_table/textures/wooden_table_02_metal_4k.exr",
     ),
 }
+
+# up, down, front, back, left, right
+cube_corner_uvs = [
+    [(0.375, 0.500), (0.125, 0.750)],   # (y, x)
+    [(0.625, 0.500), (0.875, 0.750)],
+    [(0.625, 0.750), (0.375, 1.000)],   # (z, y)
+    [(0.625, 0.500), (0.375, 0.250)],
+    [(0.625, 0.250), (0.375, 0.000)],   # (z, x)
+    [(0.625, 0.500), (0.375, 0.750)]
+]
