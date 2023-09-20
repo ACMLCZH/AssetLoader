@@ -105,7 +105,10 @@ texture_lookup = {
 
 background_lookup = {
     "sunflowers_puresky": BackgroundSource("sunflowers_puresky_8k.hdr"),
-    "brown_photostudio_07": BackgroundSource("brown_photostudio_07_8k.hdr"), 
+    "brown_photostudio_01": BackgroundSource("brown_photostudio_01_4k.exr"),
+    "brown_photostudio_02": BackgroundSource("brown_photostudio_02_4k.exr"),
+    "brown_photostudio_07": BackgroundSource("brown_photostudio_07_8k.hdr"),
+    "lebombo": BackgroundSource("lebombo_4k.exr"),
 }
 
 model_lookup = {
