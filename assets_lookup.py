@@ -52,6 +52,17 @@ texture_lookup = {
         displace="dark_wood/textures/dark_wood_disp_4k.png"
     ),
     
+    "laminate_floor": TextureSource(
+        texture="laminate_floor/textures/laminate_floor_diff_4k.jpg",
+        roughness="laminate_floor/textures/laminate_floor_rough_4k.exr",
+        normal="laminate_floor/textures/laminate_floor_nor_gl_4k.exr",
+        displace="laminate_floor/textures/laminate_floor_disp_4k.png"
+    ),
+    
+    "panel_wood": TextureSource(
+        texture="panel_wood/panel-wood-3.jpg",
+    ),
+
     "fabric_pattern_05": TextureSource(
         texture="fabric_pattern_05/textures/fabric_pattern_05_col_01_4k.png",
         roughness="fabric_pattern_05/textures/fabric_pattern_05_rough_4k.jpg",
@@ -62,13 +73,6 @@ texture_lookup = {
         texture="fabric_pattern_07/textures/fabric_pattern_07_col_1_4k.png",
         roughness="fabric_pattern_07/textures/fabric_pattern_07_rough_4k.jpg",
         normal="fabric_pattern_07/textures/fabric_pattern_07_nor_gl_4k.exr",
-    ),
-    
-    "laminate_floor": TextureSource(
-        texture="laminate_floor/textures/laminate_floor_diff_4k.jpg",
-        roughness="laminate_floor/textures/laminate_floor_rough_4k.exr",
-        normal="laminate_floor/textures/laminate_floor_nor_gl_4k.exr",
-        displace="laminate_floor/textures/laminate_floor_disp_4k.png"
     ),
     
     "sandy_gravel": TextureSource(
