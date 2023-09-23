@@ -109,6 +109,9 @@ background_lookup = {
     "brown_photostudio_02": BackgroundSource("brown_photostudio_02_4k.exr"),
     "brown_photostudio_07": BackgroundSource("brown_photostudio_07_8k.hdr"),
     "lebombo": BackgroundSource("lebombo_4k.exr"),
+    "spaceship_01": BackgroundSource("spaceship_01.jpg"),
+    "spaceship_02": BackgroundSource("spaceship_02.jpg"),
+    "indoor_bright": BackgroundSource("indoor_bright.png"),
 }
 
 model_lookup = {
