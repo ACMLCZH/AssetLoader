@@ -86,6 +86,10 @@ texture_lookup = {
         texture="cube_bake/eraser/Regulated.png"
     ),
 
+    "ICLR_logo": TextureSource(
+        texture="logos/ICLR-logo.png"
+    ),
+
     "poker_1": TextureSource(
         texture="both_bake/poker/Poker_1.png"
     ),
