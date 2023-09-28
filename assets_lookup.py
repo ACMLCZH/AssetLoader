@@ -133,7 +133,6 @@ model_lookup = {
     "wooden_plane": ModelSource(
         object="glb/wood_table_1/models/whole.obj",
         texture="glb/wood_table_1/textures/color_2.png",
-        roughness="glb/wood_table_1/textures/roughness_2.png",
         metallic="glb/wood_table_1/textures/matallic_2.png",
     ),
     "coffee_table": ModelSource(
