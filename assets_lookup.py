@@ -141,6 +141,12 @@ model_lookup = {
         roughness="glb/coffee_table/textures/roughness_0.png",
         metallic="glb/coffee_table/textures/matallic_0.png",
     ),
+    "round_table": ModelSource(
+        object="glb/round_table/models/object_0.obj",
+        texture="glb/round_table/textures/color_0.png",
+        roughness="glb/round_table/textures/roughness_0.png",
+        metallic="glb/round_table/textures/matallic_0.png",
+    ),
 }
 
 # up, down, front, back, left, right
