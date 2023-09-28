@@ -137,9 +137,9 @@ model_lookup = {
     ),
     "coffee_table": ModelSource(
         object="glb/coffee_table/models/object_0.obj",
-        texture="glb/coffee_table/models/color_0.png",
-        roughness="glb/coffee_table/models/roughness_0.png",
-        metallic="glb/coffee_table/models/matallic_0.png",
+        texture="glb/coffee_table/textures/color_0.png",
+        roughness="glb/coffee_table/textures/roughness_0.png",
+        metallic="glb/coffee_table/textures/matallic_0.png",
     ),
 }
 
