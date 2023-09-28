@@ -3,6 +3,7 @@ import os
 
 # blender.exe --background "./assets/models/blend/dir/file.blend" --python ./process_blend.py
 # "E:/Program Files/Blender Foundation/Blender 3.5/blender.exe"
+# ./assets/models/blend/postcard/postcard_set_01_4k.blend
 
 print(dir(bpy.data))
 blend_file_path = bpy.data.filepath
@@ -16,7 +17,7 @@ bpy.ops.object.select_all(action='DESELECT')
 scene = bpy.context.scene
 for ob in scene.objects:
     # Select each object
-    print("object name: ", ob.data.name)
+    print("object name: ", ob.name)
 
     # Make sure that we only export meshes
     if ob.type == 'MESH':

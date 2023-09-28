@@ -130,6 +130,18 @@ model_lookup = {
         normal="blend/wooden_table/textures/wooden_table_02_nor_gl_4k.exr",
         metallic="blend/wooden_table/textures/wooden_table_02_metal_4k.exr",
     ),
+    "wooden_plane": ModelSource(
+        object="glb/wood_table_1/models/whole.obj",
+        texture="glb/wood_table_1/textures/color_2.png",
+        roughness="glb/wood_table_1/textures/roughness_2.png",
+        metallic="glb/wood_table_1/textures/matallic_2.png",
+    ),
+    "coffee_table": ModelSource(
+        object="glb/coffee_table/models/object_0.obj",
+        texture="glb/coffee_table/models/color_0.png",
+        roughness="glb/coffee_table/models/roughness_0.png",
+        metallic="glb/coffee_table/models/matallic_0.png",
+    ),
 }
 
 # up, down, front, back, left, right
