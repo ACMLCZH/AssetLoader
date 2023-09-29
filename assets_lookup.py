@@ -113,6 +113,10 @@ texture_lookup = {
     "postcard_2": TextureSource(
         texture="both_bake/postcard/Postcard_2.png"
     ),
+
+    "ruler": TextureSource(
+        texture="both_bake/ruler/Ruler.png"
+    ),
 }
 
 background_lookup = {
