@@ -1,6 +1,7 @@
 import os
 import numpy as np
-
+from PIL import Image
+from typing import List
 
 def get_png_filename(exr_file):
     print(f"Converting file: {exr_file} {os.path.exists(exr_file)}")
@@ -65,31 +66,33 @@ def exr_to_png_openexr(exr_file):
     Image.fromarray(tonemapped_image).save(png_file)
     return png_file
 
+def read_png(png_file) -> Image.Image:
+    frame = Image.open(png_file)
+    return frame.copy()
 
-def pngs_to_gif(pngs, gif_file):
-    from PIL import Image
-    frames = []
-
-    for png_file in pngs:
-        with Image.open(png_file) as frame:
-            frames.append(frame.copy())
-
-    frames[0].save(
-        gif_file, format='GIF', append_images=frames[1:],
+def write_gif(imgs: List[Image.Image], gif_file):
+    imgs[0].save(
+        gif_file, format='GIF', append_images=imgs[1:],
         save_all=True, duration=25, loop=0
     )
+    print(f'GIF saved to {gif_file}.')
 
+def write_mp4(imgs: List[Image.Image], mp4_file, bitrate='50000k', fps=60):
+    from moviepy.editor import ImageSequenceClip
+
+    imgs_arr = [np.array(img) for img in imgs]
+    imgs_clip = ImageSequenceClip(imgs_arr, fps=fps)
+    imgs_clip.write_videofile(mp4_file, bitrate=bitrate, fps=fps, logger=None)
+    print(f'Video saved to {mp4_file}.')
+
+def np_write_png(img_arr: np.ndarray, png_file):
+    if img_arr.dtype == np.float32 or img_arr.dtype == np.float64:
+        img_arr = np.uint8(img_arr * 255)
+    Image.fromarray(img_arr).save(png_file)
+    print(f'PNG saved to {png_file}.')
 
 def save_tif(image, image_path):
     from tifffile import imsave
 
     # Save as TIF - when reading, use "data = imread('file.tif')"
     imsave(image_path, image)
-
-
-def save_png(image, image_path):
-    from PIL import Image
-
-    if image.dtype == np.float32 or image.dtype == np.float64:
-        image = np.uint8(image * 255)
-    Image.fromarray(image).save(image_path)
