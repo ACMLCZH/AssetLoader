@@ -45,12 +45,15 @@ if __name__ == "__main__":
             write_gif(imgs, gif_file)
         
     elif args.script_path is not None and args.script_mark is not None:
-        result = subprocess.run([
+        command = [
             args.renderer_path,
             f"-b CUDA",
             f"-o \"{args.output_dir}\"",
             f"-m {args.script_mark}",
-            f"-r \"{args.script_path}\"",
-        ], stdout=subprocess.PIPE)
+            f"-r",
+            f"\"{args.script_path}\"",
+        ]
+        print(" ".join(command))
+        result = subprocess.run(command)
     else:
         raise Exception("No script specified!")
