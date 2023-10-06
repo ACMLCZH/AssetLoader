@@ -70,10 +70,11 @@ def read_png(png_file) -> Image.Image:
     frame = Image.open(png_file)
     return frame.copy()
 
-def write_gif(imgs: List[Image.Image], gif_file):
+def write_gif(imgs: List[Image.Image], gif_file, fps=60):
+    duration = int(1000 / fps)
     imgs[0].save(
         gif_file, format='GIF', append_images=imgs[1:],
-        save_all=True, duration=25, loop=0
+        save_all=True, duration=duration, loop=0
     )
     print(f'GIF saved to {gif_file}.')
 

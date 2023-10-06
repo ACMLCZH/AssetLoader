@@ -11,6 +11,7 @@ if __name__ == "__main__":
     parser.add_argument("--scripts_dir", type=str, default=None)
     parser.add_argument("--script_path", type=str, default=None)
     parser.add_argument("--script_mark", type=str, default=None)
+    parser.add_argument("--fps", type=int, default=60)
     parser.add_argument("--render_mp4", action="store_true", default=False)
     parser.add_argument("--no_render", action="store_true", default=False)
     args = parser.parse_args()
@@ -25,6 +26,7 @@ if __name__ == "__main__":
         for i in range(len(files)):
             real_mark = f"{args.script_mark}_{file_marks[idx[i]]}"
             if not args.no_render:
+            # if not True:
                 command = [
                     args.renderer_path,
                     f"-b CUDA",
@@ -39,10 +41,10 @@ if __name__ == "__main__":
         imgs = [read_png(png) for png in pngs]
         if args.render_mp4:
             mp4_file = os.path.join(args.output_dir, f"{args.script_mark}.mp4")
-            write_mp4(imgs, mp4_file, fps=50)
+            write_mp4(imgs, mp4_file, fps=args.fps)
         else:
             gif_file = os.path.join(args.output_dir, f"{args.script_mark}.gif")
-            write_gif(imgs, gif_file)
+            write_gif(imgs, gif_file, fps=args.fps)
         
     elif args.script_path is not None and args.script_mark is not None:
         command = [
