@@ -12,6 +12,7 @@ if __name__ == "__main__":
     parser.add_argument("--script_path", type=str, default=None)
     parser.add_argument("--script_mark", type=str, default=None)
     parser.add_argument("--fps", type=int, default=60)
+    parser.add_argument("--image_scale", type=float, default=1.0)
     parser.add_argument("--render_mp4", action="store_true", default=False)
     parser.add_argument("--no_render", action="store_true", default=False)
     args = parser.parse_args()
@@ -41,7 +42,7 @@ if __name__ == "__main__":
         imgs = [read_png(png) for png in pngs]
         if args.render_mp4:
             mp4_file = os.path.join(args.output_dir, f"{args.script_mark}.mp4")
-            write_mp4(imgs, mp4_file, fps=args.fps)
+            write_mp4(imgs, mp4_file, fps=args.fps, scale=args.image_scale)
         else:
             gif_file = os.path.join(args.output_dir, f"{args.script_mark}.gif")
             write_gif(imgs, gif_file, fps=args.fps)

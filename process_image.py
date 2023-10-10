@@ -78,12 +78,14 @@ def write_gif(imgs: List[Image.Image], gif_file, fps=60):
     )
     print(f'GIF saved to {gif_file}.')
 
-def write_mp4(imgs: List[Image.Image], mp4_file, bitrate='50000k', fps=60):
+def write_mp4(imgs: List[Image.Image], mp4_file, fps=60, scale=1.0):
+    #  bitrate='50000k', 
     from moviepy.editor import ImageSequenceClip
 
     imgs_arr = [np.array(img) for img in imgs]
     imgs_clip = ImageSequenceClip(imgs_arr, fps=fps)
-    imgs_clip.write_videofile(mp4_file, bitrate=bitrate, fps=fps, logger=None)
+    imgs_clip.resize(scale)
+    imgs_clip.write_videofile(mp4_file, fps=fps, logger=None)
     print(f'Video saved to {mp4_file}.')
 
 def np_write_png(img_arr: np.ndarray, png_file):
