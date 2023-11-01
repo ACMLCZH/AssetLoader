@@ -94,6 +94,10 @@ texture_lookup = {
         texture="logos/ICLR-logo.png"
     ),
 
+    "genesis_logo": TextureSource(
+        texture="logos/genesis-logo.png"
+    ),
+
     "poker_1": TextureSource(
         texture="both_bake/poker/Poker_1.png"
     ),
